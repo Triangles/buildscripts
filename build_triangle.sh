@@ -24,28 +24,27 @@ res1=$(date +%s.%N)
 
 
 echo -e  ${bldblue}"       "                    
-echo -e  " 0000000000 00000000    0000       0000      000    00   00000000  00       0000000   0000000"
-echo -e  "     00     00     00    00       00  00     0000   00  00         00       00       00      "
-echo -e  "     00     00000000     00      00    00    00 00  00 00   00000  00       0000000   000000 "
-echo -e  "     00     00    00     00     0000000000   00  00 00 00       00 00       00             00"
-echo -e  "     00     00     00    00    00        00  00   0000  00      00 00       00             00"
-echo -e  "     00     00      00  0000  00          00 00    000   00000000  00000000 0000000   000000 "
+echo -e  " XXXXXXXXXX XXXXXXXX    XXXX       XXXX      XXX    XX   XXXXXXXX  XX       XXXXXXX   XXXXXXX"
+echo -e  "     XX     XX     XX    XX       XX  XX     XXXX   XX  XX         XX       XX       XX      "
+echo -e  "     XX     XXXXXXXX     XX      XX    XX    XX XX  XX XX   XXXXX  XX       XXXXXXX   XXXXXX "
+echo -e  "     XX     XX    XX     XX     XXXXXXXXXX   XX  XX XX XX       XX XX       XX             XX"
+echo -e  "     XX     XX     XX    XX    XX        XX  XX   XXXX  XX      XX XX       XX             XX"
+echo -e  "     XX     XX      XX  XXXX  XX          XX XX    XXX   XXXXXXXX  XXXXXXXX XXXXXXX   XXXXXX "
 echo -e
-echo -e "${cya}Building ${bldcya}Triangle Nightly-$VERSION ${txtrst}";
-echo -e ""
+echo -e "${bldcya} Building Triangle Nightly-$VERSION ${txtrst}";
 echo -e ""
 
 # setup environment
-echo -e "${bldblu}Setting up build environment ${txtrst}"
+echo -e "${bldblu} Setting Build Environment ${txtrst}"
 . build/envsetup.sh
 
 # lunch device
 echo -e ""
-echo -e "${bldblu}Lunching your device ${txtrst}"
+echo -e "${bldblu} Lunching Device ${txtrst}"
 lunch "triangles_$DEVICE-userdebug";
 
 echo -e ""
-echo -e "${bldblu}Starting Triangle build for $DEVICE ${txtrst}"
+echo -e "${bldblu} Starting Build for $DEVICE ${txtrst}"
 
 # start compilation
 brunch "triangles_$DEVICE-userdebug" -j"$THREADS"
@@ -53,5 +52,4 @@ echo -e ""
 
 # finished? get elapsed time
 res2=$(date +%s.%N)
-echo "Wow, that's cool! You finished building Triangles ROM Project!"
-echo "${bldgrn}Total time elapsed: ${txtrst}${grn}$(echo "($res2 - $res1) / 60"|bc ) minutes ($(echo "$res2 - $res1"|bc ) seconds) ${txtrst}"
+echo "${bldgrn}TOTAL TIME: ${txtrst}${grn}$(echo "($res2 - $res1) / 60"|bc ) minutes ($(echo "$res2 - $res1"|bc ) seconds) ${txtrst}"
