@@ -41,13 +41,13 @@ echo -e "${bldblu} Setting Build Environment ${txtrst}"
 # lunch device
 echo -e ""
 echo -e "${bldblu} Lunching Device ${txtrst}"
-lunch "triangles_$DEVICE-userdebug";
+lunch "cm_$DEVICE-userdebug";
 
 echo -e ""
 echo -e "${bldblu} Starting Build for $DEVICE ${txtrst}"
 
 # start compilation
-brunch "triangles_$DEVICE-userdebug" -j"$THREADS"
+brunch "cm_$DEVICE-userdebug" -j"$THREADS"
 echo -e ""
 
 # finished? get elapsed time
